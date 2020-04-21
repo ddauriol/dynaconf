@@ -1,11 +1,18 @@
-const header_nav_ellipsis = document.querySelector('.md-header-nav__ellipsis')
-// const header_nav_logo = document.querySelector('nav.md-header-nav > a.md-header-nav__button')
-// console.log(header_nav_logo)
+var theme_color = 'teal'
 
-logo_top = `
-        <span class="md-header-nav__topic md-ellipsis mt-5">
-            <img alt="LOGO" src="assets/images/logo_white.svg" height="25"></img>
-        </span>`
+function get_theme_color(){
+    
+    if (!!(window.localStorage.getItem('dynaconf'))) {
+        theme_color = JSON.parse((window.localStorage.getItem('dynaconf')));
+        change_color(theme_color)
+    }
 
-header_nav_ellipsis.innerHTML = logo_top
-// header_nav_logo.innerHTML = ''
+}
+
+function change_color(color){
+
+    document.body.dataset.mdColorPrimary = color
+    theme_color = color
+    localStorage.setItem('dynaconf', JSON.stringify(theme_color))
+
+}

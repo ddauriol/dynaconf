@@ -12,7 +12,7 @@
 ## Subpackages
 ### Contrib
 - [Flask](../modules/contrib/flask_dynaconf.md)
-- [Django](../modules/contrib/django_dynaconf_v2.md)
+<!-- - [Django](../modules/contrib/django_dynaconf_v2.md) -->
 ### Loaders
 - [base](../modules/loaders/base.md)
 - [env](../modules/loaders/env_loader.md)
@@ -25,6 +25,6 @@
 - [yaml](../modules/loaders/yaml_loader.md)
 ### Utils
 - [Boxing](../modules/utils/boxing.md)
-- [Functional](../modules/utils/functional.md)
+<!-- - [Functional](../modules/utils/functional.md) -->
 - [Parse Config](../modules/utils/parse_conf.md)
 - [Files](../modules/utils/boxing.md)

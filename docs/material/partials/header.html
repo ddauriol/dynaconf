@@ -11,13 +11,13 @@
     </label>
     <div class="md-header-nav__title" data-md-component="header-title">
       {% if config.site_name == page.title %}
-        <div class="md-header-nav__ellipsis md-ellipsis">
-          {{ config.site_name }}
+        <div class="md-header-nav__ellipsis md-ellipsis mt-5">
+          <img src="{{ config.theme.logo_title | url }}" alt="{{ config.site_name }}" height="25">
         </div>
       {% else %}
         <div class="md-header-nav__ellipsis">
-          <span class="md-header-nav__topic md-ellipsis">
-            {{ config.site_name }}
+          <span class="md-header-nav__topic md-ellipsis mt-5">
+            <img src="{{ config.theme.logo_title | url }}" alt="{{ config.site_name }}" height="25">
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             {% if page and page.meta and page.meta.title %}
