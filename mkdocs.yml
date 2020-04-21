@@ -43,8 +43,6 @@ theme:
 # Plugins
 plugins:
   - search
-  - minify:
-      minify_html: true
   - markdownextradata: {}
   - mkdocstrings:
       default_handler: python
