@@ -435,10 +435,12 @@ class Settings(object):
             >>> print(settings.MESSAGE)
             'This is in dev'
 
-        Arguments:
+        Arguments::
+
             env {str} -- Env to load (development, production, custom)
 
-        Keyword Arguments:
+        Keyword Arguments::
+
             keep {bool} -- Keep pre-existing values (default: {False})
             kwargs {dict} -- Passed directly to new instance.
         """

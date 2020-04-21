@@ -2,7 +2,7 @@
 
 ## overloading parameters via env vars
 
-All configuration parameters, including **custom** environments and [dynaconf configuration](configuration.html), can be overridden through environment variables.
+All configuration parameters, including **custom** environments and [dynaconf configuration](configuration.md), can be overridden through environment variables.
 
 To override the configuration parameter **{param}**, use an environment variable named **DYNACONF_{PARAM}**. For instance, to override the **"HOST"** configuration parameter, you can run your application with:
 
@@ -10,11 +10,11 @@ To override the configuration parameter **{param}**, use an environment variable
 DYNACONF_HOST='otherhost.com' python yourapp.py
 ```
 
-## .env files
+## '.env' files
 
 If you don't want to declare the variables on every program call you can run `export DYNACONF_{PARAM}` in your shell or put the values in a `.env` file located in the same directory as your settings files (the root directory of your application or the same folder where your program script is located), variables in `.env` does not overrride existing environment variables.
 
-> **IMPORTANT**: Dynaconf will search for a `.env` on the order explained [here](usage.html). So to avoid conflicts with existing `.env` in parent directories it is recommended to have a `.env` inside your project even if it is empty.
+> **IMPORTANT**: Dynaconf will search for a `.env` on the order explained [here](usage.md). So to avoid conflicts with existing `.env` in parent directories it is recommended to have a `.env` inside your project even if it is empty.
 
 ## Precedence and type casting
 
@@ -58,10 +58,10 @@ DYNACONF_ARRAY='@json [42, 3.14, "hello", true, ["otherarray"], {"foo": "bar"}]'
 # Lazily formatted string can access env vars and settings variables.
 
 # using str.format
-DYNACONF_DATABASE_PATH="@format {env[HOME]}/.config/databases/{this.DB_NAME}"
+DYNACONF_DATABASE_PATH="@format '{env[HOME]}/.config/databases/{this.DB_NAME}"
 
 # using jinja2
-DYNACONF_DATABASE_PATH="@jinja {{env.HOME}}/.config/databases/{{this.DB_NAME}}"
+DYNACONF_DATABASE_PATH="{{dynaconf.DYNACONF_DATABASE_PATH}}"
 ```
 
 > **NOTE**: Older versions of Dynaconf used the `@casting` prefixes for env vars like `export DYNACONF_INTEGER='@int 123'` still works but this casting is deprecated in favor of using TOML syntax described above. To disable the `@casting` do `export AUTO_CAST_FOR_DYNACONF=false`
@@ -270,7 +270,7 @@ The end result will be on `[development]` env:
 settings.DATABASE == {'host': 'server.com', 'user': 'dev_user', 'password': 1234}
 ```
 
-Read more in [Getting Started Guide](usage.html#merging-existing-values)
+Read more in [Getting Started Guide](usage.md#merging-existing-values)
 
 ### The global prefix
 
@@ -285,4 +285,4 @@ from dynaconf import LazySettings
 settings = LazySettings(ENVVAR_PREFIX_FOR_DYNACONF=False)
 ```
 
-> **NOTE**: See the [Configuring dynaconf](configuration.html) section in documentation to learn more on how to use `.env` variables to configure dynaconf behavior.
+> **NOTE**: See the [Configuring dynaconf](configuration.md) section in documentation to learn more on how to use `.env` variables to configure dynaconf behavior.

@@ -12,7 +12,7 @@ You can manually append at the bottom of your django project's `settings.py` the
 
 ```python
 # HERE STARTS DYNACONF EXTENSION LOAD (Keep at the very bottom of settings.py)
-# Read more at https://dynaconf.readthedocs.io/en/latest/guides/django.html
+# Read more at https://dynaconf.readthedocs.io/en/latest/guides/django.md
 import dynaconf  # noqa
 settings = dynaconf.DjangoDynaconf(__name__)  # noqa
 # HERE ENDS DYNACONF EXTENSION LOAD (No more code below this line)
@@ -86,7 +86,7 @@ DATABASES = {
 }
 ```
 
-Read more on [environment variables](https://dynaconf.readthedocs.io/en/latest/guides/environment_variables.html#nested-keys-in-dictionaries-via-environment-variables)
+Read more on [environment variables](https://dynaconf.readthedocs.io/en/latest/guides/environment_variables.md#nested-keys-in-dictionaries-via-environment-variables)
 
 ## Settings files
 
@@ -99,7 +99,7 @@ in development mode or `DJANGO_ENV=production` to switch to production.
 
 > **IMPORTANT**: To use `$ dynaconf` CLI the `DJANGO_SETTINGS_MODULE` environment variable must be defined.
 
-IF you don't want to manually create your config files take a look at the [CLI](cli.html)
+IF you don't want to manually create your config files take a look at the [CLI](cli.md)
 
 ## Customizations
 
@@ -140,7 +140,7 @@ Your settings are now read from `/etc/projectname/settings.toml` (dynaconf will 
 
 You can have additional settings read from `/etc/projectname/plugins/*` any supoprted file from this folder will be loaded.
 
-You can set more options, take a look on [configuration](configuration.html)
+You can set more options, take a look on [configuration](configuration.md)
 
 ## Reading Settings on Standalone Scripts
 

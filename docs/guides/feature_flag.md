@@ -7,13 +7,13 @@ application based in some settings value.
 
 The advantage of using it is to perform changes on the fly without the need to redeploy ou restart the application.
 
-Learn more on how to design your program using Feature Flags: [http://martinfowler.com/articles/feature-toggles.html](http://martinfowler.com/articles/feature-toggles.html)
+Learn more on how to design your program using Feature Flags: [http://martinfowler.com/articles/feature-toggles.md](http://martinfowler.com/articles/feature-toggles.md)
 
 Example:
 
 Lets say you have 2 versions of your app dashboard and you want to serve the new version only for premium users.
 
-write flags to [redis](external_storages.html)
+write flags to [redis](external_storages.md)
 
 ```
 $ dynaconf write redis -s NEWDASHBOARD=true -e premiumuser

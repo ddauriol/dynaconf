@@ -98,10 +98,12 @@ def read_file(path, **kwargs):
 def get_local_filename(filename):
     """Takes a filename like `settings.toml` and returns `settings.local.toml`
 
-    Arguments:
+    Arguments::
+
         filename {str} -- The filename or complete path
 
-    Returns:
+    Returns::
+
         [str] -- The same name or path with `.local.` added.
     """
     name, _, extension = os.path.basename(str(filename)).rpartition(

@@ -34,13 +34,13 @@ conn = Client(
 
 ### Understanding the settings
 
-Dynaconf aims to have a flexible and usable configuration system. Your applications can be configured via a [**configuration files**](#the-settings-files), through [**environment variables**](environment_variables.html), or both. Configurations can be separated into environments: **[default], [development], [staging], [testing] and [production]**. The working environment is switched via an environment variable.
+Dynaconf aims to have a flexible and usable configuration system. Your applications can be configured via a [**configuration files**](#the-settings-files), through [**environment variables**](environment_variables.md), or both. Configurations can be separated into environments: **[default], [development], [staging], [testing] and [production]**. The working environment is switched via an environment variable.
 
-But this is all **optional** you can of course follow strictly the [12 factor app](https://12factor.net/config) guide, have your configuration coming only from environment variables and provide files only to store `[default]` values. (take also a look on how to add a [dynaconf validation](validation.html) file to your project).
+But this is all **optional** you can of course follow strictly the [12 factor app](https://12factor.net/config) guide, have your configuration coming only from environment variables and provide files only to store `[default]` values. (take also a look on how to add a [dynaconf validation](validation.md) file to your project).
 
-**Sensitive data** like tokens, secret keys and password can be stored in `.secrets.*` files and/or [external storages](external_storages.html) like `Redis` or `vault` secrets server.
+**Sensitive data** like tokens, secret keys and password can be stored in `.secrets.*` files and/or [external storages](external_storages.md) like `Redis` or `vault` secrets server.
 
-Besides the built-in optional support to **Redis** as settings storage dynaconf allows you to create [**Custom Loaders**](extend.html) and store the data wherever you want e.g: databases, memory storages, other file formats, nosql databases etc.
+Besides the built-in optional support to **Redis** as settings storage dynaconf allows you to create [**Custom Loaders**](extend.md) and store the data wherever you want e.g: databases, memory storages, other file formats, nosql databases etc.
 
 ## Working environments
 
@@ -66,7 +66,7 @@ or
 ENV_FOR_DYNACONF=staging python yourapp.py
 ```
 
-> **NOTE:** When using [Flask Extension](flask.html) the environment can be changed via `FLASK_ENV` variable and for [Django Extension](django.html) you can use `DJANGO_ENV`.
+> **NOTE:** When using [Flask Extension](flask.md) the environment can be changed via `FLASK_ENV` variable and for [Django Extension](django.md) you can use `DJANGO_ENV`.
 
 ## The settings files
 
@@ -77,13 +77,13 @@ and dynaconf will try to find each one of those combinations, optionally it is p
 
 > IMPORTANT: Dynaconf by default reads settings files using `utf-8` encoding, if you have settings files written in other encoding please set `ENCODING_FOR_DYNACONF` environment variable.
 
-See more details in [configuration](configuration.html)
+See more details in [configuration](configuration.md)
 
 ## Settings files location
 
 To find the files defined in `SETTINGS_FILE_FOR_DYNACONF` the search will start at the path defined in `ROOT_PATH_FOR_DYNACONF` (if defined), then will recursively walk to its root and then will try the **folder where the called program is located** and then it will recursively try its parent directories **until the root parent is reached which can be File System `/` or the current working dir** then finally will try the **current working directory** as the last option.
 
-> **NOTE**: If by any reason you need Dynaconf to first look at the current working dir you can customize the `ROOT_PATH_FOR_DYNACONF` via environment variable or by creating a [custom settings object](advanced_usage.html#customizing-the-settings-object)
+> **NOTE**: If by any reason you need Dynaconf to first look at the current working dir you can customize the `ROOT_PATH_FOR_DYNACONF` via environment variable or by creating a [custom settings object](advanced_usage.md#customizing-the-settings-object)
 
 Some people prefer to put settings in a sub-folder so for each of the paths it will also search in a relative folder called `config/`.
 
@@ -184,7 +184,7 @@ BAR
 
 Dynaconf loads file in a overriding cascade loading order using the predefined order:
 
-1. First the environment variables (and `.env` file) to read for [configuration](configuration.html) options
+1. First the environment variables (and `.env` file) to read for [configuration](configuration.md) options
 2. Then the paths provided in `PRELOAD_FOR_DYNACONF` using all enabled loaders.
 3. Then the files defined in `SETTINGS_FILE_FOR_DYNACONF` using all enabled loaders.
     - Files containing `.local.` in its name will be loaded at the end. e.g: `settings.local.yaml`
@@ -199,7 +199,7 @@ Dynaconf loads file in a overriding cascade loading order using the predefined o
 The order can be changed by overriding the `SETTINGS_FILE_FOR_DYNACONF` the `CORE_LOADERS_FOR_DYNACONF` and `LOADERS_FOR_DYNACONF` variables.
 
 > **NOTE**: Dynaconf works in an **layered override** mode based on the above order, so if you have multiple file formats with conflicting keys defined, the precedence will be based on the loading order.
-> If you dont want to have values like `lists` and `dicts` overwritten take a look on how to [merge existing values](usage.html#merging-existing-values)
+> If you dont want to have values like `lists` and `dicts` overwritten take a look on how to [merge existing values](usage.md#merging-existing-values)
 
 ## Local configuration files and merging to existing data
 
@@ -394,7 +394,7 @@ pip3 install dynaconf[all]
 
 Once the support is installed no extra configuration is needed to load data from those files.
 
-If you need a different file format take a look on how to extend dynaconf writing a [custom loader](extend.html)
+If you need a different file format take a look on how to extend dynaconf writing a [custom loader](extend.md)
 
 ## Additional secrets file (for CI, jenkins etc.)
 
@@ -564,7 +564,7 @@ settings.toml
 DB_NAME = "mydb.db"
 
 [development]
-DB_PATH = "@jinja {{env.HOME}}/{{this.current_env | lower}}/{{env['PROGRAM_NAME']}}/{{this.DB_NAME}}"
+DB_NAME = "{{dynaconf.DB_PATH}}"
 ```
 
 so in your `program`
@@ -575,9 +575,9 @@ from dynaconf import settings
 settings.DB_PATH == '~/development/calculator/mydb.db'
 ```
 
-The main difference is that Jinja allows some Python expressions to be avaluated such as `{% for, if, while %}` and also supports calling methods and has lots of filters like `| lower`.
+The main difference is that Jinja allows some Python expressions to be avaluated such as `{{dynaconf.FOR}}` and also supports calling methods and has lots of filters like `| lower`.
 
-Jinja supports its built-in filters listed in [Builtin Filters Page](http://jinja.palletsprojects.com/en/master/templates/#builtin-filters) and Dynaconf includes aditional filters for `os.path` module: `abspath`. `realpath`, `relpath`, `basename` and `dirname` and usage is like: `VALUE = "@jinja {{this.FOO | abspath}}"`
+Jinja supports its built-in filters listed in [Builtin Filters Page](http://jinja.palletsprojects.com/en/master/templates/#builtin-filters) and Dynaconf includes aditional filters for `os.path` module: `abspath`. `realpath`, `relpath`, `basename` and `dirname` and usage is like: `{{dynaconf.VALUE}}`
 
 ## Merging existing data structures
 
@@ -641,7 +641,7 @@ export DYNACONF_DATABASE__ARGS__timeout=30
 export DYNACONF_DATABASE__ARGS__retries=5
 ```
 
-Each `__` is parsed as a level traversing thought dict keys. read more in [environment variables](environment_variables.html#nested-keys-in-dictionaries-via-environment-variables)
+Each `__` is parsed as a level traversing thought dict keys. read more in [environment variables](environment_variables.md#nested-keys-in-dictionaries-via-environment-variables)
 
 So the above will result in
 
@@ -778,7 +778,7 @@ settings.SCRIPTS == ['install.sh', 'dev.sh', 'test.sh', 'deploy.sh', 'run.sh']
 
 The **dynaconf_merge** and **@merge** functionalities works only for the first level keys, it will not merge subdicts or nested lists (yet).
 
-For deeper nested objects use [dunder merge](environment_variables.html#nested-keys-in-dictionaries-via-environment-variables).
+For deeper nested objects use [dunder merge](environment_variables.md#nested-keys-in-dictionaries-via-environment-variables).
 
 ### Global merge
 

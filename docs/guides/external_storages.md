@@ -3,7 +3,7 @@
 An external storage is needed in some programs for scenarios like:
 
 1) Having a single storage for settings and distribute across multiple instances
-2) The need to change settings on the fly without redeploying or restarting the app (see [Feature Flags](feature_flag.html))
+2) The need to change settings on the fly without redeploying or restarting the app (see [Feature Flags](feature_flag.md))
 3) Storing sensitive values in a safe sealed **Vault**
 
 ## Using REDIS
@@ -113,10 +113,10 @@ print(settings.MYSQL_HOST)  # This data is being read from redis imediatelly!
 
 ## Using Hashicorp Vault to store secrets
 
-Read more in [Using Vault Server section](sensitive_secrets.html)
+Read more in [Using Vault Server section](sensitive_secrets.md)
 
 ## Custom Storages
 
 Do you want to store settings in other databases like NoSQL, Relational Databases or other services?
 
-Please see how to [extend dynaconf](extend.html) to add your custom loaders.
+Please see how to [extend dynaconf](extend.md) to add your custom loaders.

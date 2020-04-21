@@ -1,0 +1,34 @@
+a.external-link::after {
+    /* \00A0 is a non-breaking space
+        to make the mark be on the same line as the link
+    */
+    content: "\00A0[↪]";
+}
+
+a.internal-link::after {
+    /* \00A0 is a non-breaking space
+        to make the mark be on the same line as the link
+    */
+    content: "\00A0↪";
+}
+
+.mt-5{
+    margin-top: 5px;
+}
+
+div.doc-contents:not(.first) {
+    padding-left: 25px;
+    border-left: 4px solid rgba(230, 230, 230);
+    margin-bottom: 80px;
+}
+
+div.autodoc-docstring {
+    padding-left: 20px;
+    margin-bottom: 30px;
+    border-left: 5px solid rgba(230, 230, 230);
+}
+  
+ div.autodoc-members {
+    padding-left: 20px;
+    margin-bottom: 15px;
+}
