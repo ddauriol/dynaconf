@@ -1,36 +1,22 @@
-# Project information
 site_name: DYNACONF
-site_url: https://github.com/rochacbruno/dynaconf
-site_author: https://github.com/rochacbruno/dynaconf
-
-site_description: >-
-  DYNACONF a layered configuration system for Python applications
-# Repository
+site_url: 'https://github.com/rochacbruno/dynaconf'
+site_author: 'https://github.com/rochacbruno/dynaconf'
+site_description: DYNACONF a layered configuration system for Python applications
 repo_name: rochacbruno/dynaconf
-repo_url: https://github.com/rochacbruno/dynaconf
-edit_uri: ""
-
-# Configuration
+repo_url: 'https://github.com/rochacbruno/dynaconf'
+edit_uri: ''
 theme:
   name: material
-  custom_dir: 'docs/material'
-
+  custom_dir: docs/material
   palette:
     primary: teal
     accent: amber
-  
   feature:
     - tabs
-
-  # 404 page
   static_templates:
     - 404.html
-
-  # Don't include MkDocs' JavaScript
   include_search_page: false
   search_index_only: true
-
-  # Default values, taken from mkdocs_theme.yml
   language: en
   font:
     text: Roboto
@@ -39,8 +25,6 @@ theme:
   logo_title: assets/images/logo_white.svg
   favicon: assets/images/favicon.png
   icon_config: material/settings
-
-# Plugins
 plugins:
   - search
   - markdownextradata: {}
@@ -48,86 +32,76 @@ plugins:
       default_handler: python
       watch:
         - dynaconf
-# CSS Custom
 extra_css:
-    - 'assets/stylesheets/custom.css'
-    - 'assets/stylesheets/termynal.css'
-
-# JS Custom
+  - assets/stylesheets/custom.css
+  - assets/stylesheets/termynal.css
 extra_javascript:
-    - 'assets/javascripts/custom.js'
-    - 'assets/javascripts/termynal.js'
-
-# Customization
+  - assets/javascripts/custom.js
+  - assets/javascripts/termynal.js
 extra:
-    dynaconf:
-      release: v3.0.0rc1
-      DYNACONF_DATABASE_PATH: '@jinja {{env.HOME}}/.config/databases/{{this.DB_NAME}}'
-      DB_PATH: '@jinja {{env.HOME}}/{{this.current_env | lower}}/{{env["PROGRAM_NAME"]}}/{{this.DB_NAME}}'
-      VALUE: 'VALUE = "@jinja {{this.FOO | abspath}}"'
-      FOR: '{% for, if, while %}'
-
-    social:
-      - icon: fontawesome/brands/github
-        link: https://github.com/rochacbruno
-      - icon: fontawesome/brands/twitter
-        link: https://twitter.com/rochacbruno
-      - icon: fontawesome/brands/linkedin
-        link: https://www.linkedin.com/in/rochacbruno/
-
-# Page tree
+  dynaconf:
+    release: v3.0.0rc1
+    DYNACONF_DATABASE_PATH: '@jinja {{env.HOME}}/.config/databases/{{this.DB_NAME}}'
+    DB_PATH: >-
+      @jinja {{env.HOME}}/{{this.current_env |
+      lower}}/{{env["PROGRAM_NAME"]}}/{{this.DB_NAME}}
+    VALUE: 'VALUE = "@jinja {{this.FOO | abspath}}"'
+    FOR: '{% for, if, while %}'
+  social:
+    - icon: fontawesome/brands/github
+      link: 'https://github.com/rochacbruno'
+    - icon: fontawesome/brands/twitter
+      link: 'https://twitter.com/rochacbruno'
+    - icon: fontawesome/brands/linkedin
+      link: 'https://www.linkedin.com/in/rochacbruno/'
 nav:
-    - Home: index.md
-    - Getting started: guides/usage.md
-    - Usage:
+  - Home: index.md
+  - Getting started: guides/usage.md
+  - Usage:
       - Sensitive secrets: guides/sensitive_secrets.md
       - Environment variables: guides/environment_variables.md
       - Accessing parameters: guides/accessing_values.md
       - The dynaconf CLI: guides/cli.md
       - External storages: guides/external_storages.md
-      - Configuring Dynacon : guides/configuration.md
+      - Configuring Dynacon: guides/configuration.md
       - Advanced Usage: guides/advanced_usage.md
-      - Feature flag system : guides/feature_flag.md
+      - Feature flag system: guides/feature_flag.md
       - Validation: guides/validation.md
-    - Extension:
+  - Extension:
       - Flask: guides/flask.md
       - Django: guides/django.md
-    - Testing: guides/testing.md
-    - Extending: guides/extend.md
-    - Examples: guides/examples.md
-    - About:
+  - Testing: guides/testing.md
+  - Extending: guides/extend.md
+  - Examples: guides/examples.md
+  - About:
       - How to contribute: guides/contribute.md
       - Credits: guides/credits.md
       - Alternatives: guides/alternatives.md
-      - Module reference: 
-        - Guide: guides/modules.md
-        - Submodules:
-          - Base: modules/base.md
-          - CLI: modules/cli.md
-          - Default Settings: modules/default_settings.md
-          - Constants: modules/constants.md
-          - Test Settings: modules/test_settings.md
-          - Validator: modules/validator.md
-          - Validator Conditions: modules/validator_conditions.md
-        - Subpackages:
-          - Contrib Package:
-            - Flask dynaconf: modules/contrib/flask_dynaconf.md
-          #   - django dynaconf: 
-          #       - django dynaconf: modules/contrib/django_dynaconf_v2.md
-          #       - dynaconf django config: modules/contrib/django_dynaconf/dynaconf_django_conf.md
-          - Loaders: 
-            - Base: modules/loaders/base.md
-            - env: modules/loaders/env_loader.md
-            - ini: modules/loaders/ini_loader.md
-            - json: modules/loaders/json_loader.md
-            - py: modules/loaders/py_loader.md
-            - redis: modules/loaders/redis_loader.md
-            - toml: modules/loaders/toml_loader.md
-            - vault: modules/loaders/vault_loader.md
-            - yaml: modules/loaders/yaml_loader.md
-          - Utils: 
-            - Boxing: modules/utils/boxing.md
-            # - Functional: modules/utils/functional.md
-            - Parse Config: modules/utils/parse_conf.md
-            - Files: modules/utils/files.md
+      - Module reference:
+          - Guide: guides/modules.md
+          - Submodules:
+              - Base: modules/base.md
+              - CLI: modules/cli.md
+              - Default Settings: modules/default_settings.md
+              - Constants: modules/constants.md
+              - Test Settings: modules/test_settings.md
+              - Validator: modules/validator.md
+              - Validator Conditions: modules/validator_conditions.md
+          - Subpackages:
+              - Contrib Package:
+                  - Flask dynaconf: modules/contrib/flask_dynaconf.md
+              - Loaders:
+                  - Base: modules/loaders/base.md
+                  - env: modules/loaders/env_loader.md
+                  - ini: modules/loaders/ini_loader.md
+                  - json: modules/loaders/json_loader.md
+                  - py: modules/loaders/py_loader.md
+                  - redis: modules/loaders/redis_loader.md
+                  - toml: modules/loaders/toml_loader.md
+                  - vault: modules/loaders/vault_loader.md
+                  - yaml: modules/loaders/yaml_loader.md
+              - Utils:
+                  - Boxing: modules/utils/boxing.md
+                  - Parse Config: modules/utils/parse_conf.md
+                  - Files: modules/utils/files.md
       - License: license.md
