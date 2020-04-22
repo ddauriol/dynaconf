@@ -5,10 +5,11 @@ site_description: DYNACONF a layered configuration system for Python application
 repo_name: rochacbruno/dynaconf
 repo_url: 'https://github.com/rochacbruno/dynaconf'
 edit_uri: ''
+docs_dir: ./md
 
 theme:
   name: material
-  custom_dir: docs/material
+  custom_dir: material
   palette:
     primary: purple-dark
     accent: purple-dark
@@ -85,30 +86,30 @@ nav:
       - Credits: guides/credits.md
       - Alternatives: guides/alternatives.md
       - Module reference:
-          - Guide: modules/modules.md
-          - Submodules:
-              - Base: modules/base.md
-              - CLI: modules/cli.md
-              - Default Settings: modules/default_settings.md
-              - Constants: modules/constants.md
-              - Test Settings: modules/test_settings.md
-              - Validator: modules/validator.md
-              - Validator Conditions: modules/validator_conditions.md
-          - Subpackages:
-              - Contrib Package:
-                  - Flask dynaconf: modules/contrib/flask_dynaconf.md
-              - Loaders:
-                  - Base: modules/loaders/base.md
-                  - env: modules/loaders/env_loader.md
-                  - ini: modules/loaders/ini_loader.md
-                  - json: modules/loaders/json_loader.md
-                  - py: modules/loaders/py_loader.md
-                  - redis: modules/loaders/redis_loader.md
-                  - toml: modules/loaders/toml_loader.md
-                  - vault: modules/loaders/vault_loader.md
-                  - yaml: modules/loaders/yaml_loader.md
-              - Utils:
-                  - Boxing: modules/utils/boxing.md
-                  - Parse Config: modules/utils/parse_conf.md
-                  - Files: modules/utils/files.md
+        - Guide: modules/modules/index.html
+        - Submodules:
+            - Base: modules/base/index.html
+            - CLI: modules/cli/index.html
+            - Default Settings: modules/default_settings/index.html
+            - Constants: modules/constants/index.html
+            - Test Settings: modules/test_settings/index.html
+            - Validator: modules/validator/index.html
+            - Validator Conditions: modules/validator_conditions/index.html
+        - Subpackages:
+            - Contrib Package:
+                - Flask dynaconf: modules/contrib/flask_dynaconf/index.html
+            - Loaders:
+                - Base: modules/loaders/base/index.html
+                - env: modules/loaders/env_loader/index.html
+                - ini: modules/loaders/ini_loader/index.html
+                - json: modules/loaders/json_loader/index.html
+                - py: modules/loaders/py_loader/index.html
+                - redis: modules/loaders/redis_loader/index.html
+                - toml: modules/loaders/toml_loader/index.html
+                - vault: modules/loaders/vault_loader/index.html
+                - yaml: modules/loaders/yaml_loader/index.html
+            - Utils:
+                - Boxing: modules/utils/boxing/index.html
+                - Parse Config: modules/utils/parse_conf/index.html
+                - Files: modules/utils/files/index.html
       - License: license.md

@@ -2,7 +2,7 @@
   
 **DYNACONF** a layered configuration system for Python applications -with strong support for [12-factor applications](https://12factor.net/config) and extensions for [Flask](guides/flask.md) and [Django](guides/django.md).
   
-Release v|version|. ([Installation](guides/usage.md))
+Release v|{dynaconf.release}|. ([Installation](guides/usage.md))
   
 [![image](https://img.shields.io/pypi/l/dynaconf.svg)](https://pypi.org/project/dynaconf/)
 [![image](https://img.shields.io/pypi/pyversions/dynaconf.svg)](https://pypi.org/project/dynaconf/)
